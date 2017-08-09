@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>多物体动画</title>
+<style type="text/css">
+body,div,ul{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+       list-style: none;   
+}	
+li{
+       width: 200px;
+       height: 100px;
+       background: yellow;
+       margin-bottom: 20px;
+}
+div{
+    width: 200px;
+    height: 200px;
+    background: red;
+    margin-right:20px;
+    float:left;
+    filter:alpha(opacity:30);      /* IE8 以及更早的浏览器 */
+    opacity:0.3;
+}	
+</style>
+<script type="text/javascript">
+//移入移出
+window.onload=function(){
+    var lis=document.getElementsByTagName('li');
+    for(var i=0;i<lis.length;i++){
+    	lis[i].timer=null;
+	lis[i].onmouseover=function(){
+	        startMove(this,400);
+	    };
+	lis[i].onmouseout=function(){
+	        startMove(this,200);
+	    };
+    }
+// var timer=null;  多物体运动不能公用
+function startMove(obj,target){
+    clearInterval(obj.timer);
+    obj.timer=setInterval(function(){
+        var speed=(target-obj.offsetWidth)/8;
+        speed=speed>0?Math.ceil(speed):Math.floor(speed);
+        if(obj.offsetWidth == target){
+            clearInterval(obj.timer);
+        }
+        else{
+            obj.style.width=obj.offsetWidth+speed+'px';
+        }
+    },30);
+} 
+};
+
+//透明度     为啥写上透明度函数上边的移入移出就不起作用啦？？？
+// window.onload=function(){
+//     var oDiv=document.getElementsByTagName('div');
+//     for(var i=0;i<oDiv.length;i++){
+//     	oDiv[i].timer=null;
+//     	oDiv[i].alpha=30;
+//     	oDiv[i].onmouseover=function(){
+// 	        opaChange(this,100);
+// 	    };
+// 	oDiv[i].onmouseout=function(){
+// 	        opaChange(this,30);
+// 	    };
+//     }  
+// };
+// function opaChange(obj,target){
+//     clearInterval(obj.timer);
+//     obj.timer=setInterval(function(){
+//         var speed=0;
+//         if(obj.alpha>target){
+//             speed=-10;
+//         }else{
+//             speed=10;
+//         }
+//         if(obj.alpha == target){
+//             clearInterval(obj.timer);
+//         }
+//         else{
+//             obj.alpha+=speed;
+//             obj.style.filter='alpha(opacity:'+obj.alpha+')';
+//             obj.style.opacity=obj.alpha/100;
+//         }
+//     },30);
+// }	
+</script>
+</head>
+<body>
+<ul>
+<li></li>
+<li></li>
+<li></li>	
+</ul>	
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+</body>
+</html>

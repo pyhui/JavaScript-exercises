@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>链式</title>
+<style>
+body,ul,li{
+   margin: 0px;
+   padding: 0px;
+}
+li{
+   width: 200px;
+   height: 100px;
+   background: yellow;
+   border:2px solid #000;
+   filter: alpha(opacity:30);
+   opacity: 0.3; 
+}
+</style>
+<script src="l_move.js"></script>
+<script>
+window.onload=function(){
+        var li=document.getElementById('li1');
+        li.onmouseover=function(){
+        	startMove(li,'width',400,function(){
+        		startMove(li,'height',200,function(){
+        			startMove(li,'opacity',100);
+        		});
+        	});
+        }
+        li.onmouseout=function(){
+        	startMove(li,'opacity',30,function(){
+        		startMove(li,"height",100,function(){
+        			startMove(li,"width",200);
+        		});
+        	});
+        }
+
+}
+</script>
+
+</head>
+<body>
+<ul>
+<li id="li1"></li>
+</ul>
+</body>
+</html>
