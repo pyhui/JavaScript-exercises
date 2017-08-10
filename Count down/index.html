@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间效果实现</title>
+<style>
+.con{
+	width:330px;
+	height:500px;
+	border:1px solid #000;
+	margin:0 auto;
+	border-radius:10%;
+	background-color: yellow;
+	opacity: 1;
+}
+#content{
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+	font-size: 30px;
+}
+.txt{
+
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+	font-size: 50px;
+}
+</style>
+<script>
+window.onload=function(){
+            showTime();
+            function showTime(){
+            	var mydate=new Date();
+		var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+		var mynum=mydate.getDay();
+	            var h=mydate.getHours();
+		var m= mydate.getMinutes();
+		var s= mydate.getSeconds();   
+		function check(i){
+			if(i<10){
+				i="0"+i;
+			}
+			return i;
+		}  
+	            var attime=h+":"+check(m)+":"+check(s);
+	            document.getElementById("content").innerHTML="现在是"+"<br>"+
+	           mydate.getFullYear()+"年"+(mydate.getMonth()+1)+"月"+mydate.getDate()+"日"+"<br>"+"&nbsp&nbsp"+ weekday[mynum]+"&nbsp&nbsp"+attime;
+	          
+	             setTimeout(showTime,1000); 
+	
+	var end=new Date("2017,8,26,19:30:00");
+	// var left=Math.ceil((end.getTime()-mydate.getTime())/(24*60*60*1000));
+	var left=Math.floor(end.getTime()-mydate.getTime())/1000;
+	var d=Math.floor(left/(24*60*60));
+	var h=Math.floor(left/(60*60)%24);
+	var m=Math.floor(left/60%60);
+	var s=Math.ceil(left%60);
+	document.getElementById("txt").innerHTML=d+"天"+h+"小时"+m+"分钟"+s+"秒";
+            }
+}
+</script>
+</head>
+<body>
+<div class="con">
+<div id="content"></div>
+<div class="txt">
+	<span>距离南京演唱会还有&nbsp</span><br>
+	<span id="txt"></span>
+</div>
+</div>
+</body>
+</html>
