@@ -6,3 +6,5 @@
 - [链式运动 DEMO](https://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/js%20animation/%E9%93%BE%E5%BC%8F.html)
 长宽以及透明度链式变化，长度改变完宽改变最后透明度改变
 + [淘宝网动画小demo](https://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/js%20animation/index.html#)
+## 时间显示及倒计时
++ [演唱会还有多久呢￣へ￣](http://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/Count%20down/index.html)
