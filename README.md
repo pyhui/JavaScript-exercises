@@ -17,3 +17,4 @@
 + [选项卡](http://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/Event/%E9%80%89%E9%A1%B9%E5%8D%A1.html)
 + [信息滚动（向左）](http://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/Event/%E4%BF%A1%E6%81%AF%E6%BB%9A%E5%8A%A8%EF%BC%88%E5%90%91%E5%B7%A6%EF%BC%89.html)
 + [QQ界面拖拽](http://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/QQ/index.html)
+## [商城分类导航](http://htmlpreview.github.io/?https://github.com/pyhui/JavaScript-exercises/blob/master/Mall%20navigation/index.html)
