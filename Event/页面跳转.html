@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>浏览器对象</title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=gkb"/>   
+ </head>
+ <body>
+  <!--先编写好网页布局-->
+  <b>操作成功</b>
+  <p><span id="count">5</span>秒后回到主页
+  <a href="javascript:back()">返回</a>
+  </p>
+  
+  <script type="text/javascript">  
+    var num=document.getElementById("count").innerHTML;
+    var i=setInterval("clock()",1000);
+    function clock(){
+        num=num-1;
+        document.getElementById("count").innerHTML=num;
+        if(num===0){
+            clearInterval(i);
+            location.assign('http://www.imooc.com');
+            //window.history.back();
+        }
+    }
+    function back(){
+      location.assign('http://www.imooc.com');
+      //window.history.go(-1);
+    }
+   //获取显示秒数的元素，通过定时器来更改秒数。
+   //通过window的location和history对象来控制网页的跳转。
+ </script> 
+</body>
+</html>

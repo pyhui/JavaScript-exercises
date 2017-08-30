@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>向左滚动</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+     
+    #div1 {
+        margin-left: 50px;
+        width: 150px;
+        height: 25px;
+        background: #ff0000;
+        padding-top: 5px;
+        overflow: hidden;
+    }
+     
+    #div2 {
+        /* 去除两个行内块级元素边距 */
+        font-size: 0;
+        /* 不换行 */
+        white-space: nowrap;
+        height: 20px;
+        background: #fff;
+        overflow: hidden;
+    }
+     
+    ul {
+        /* 设置为行内块级元素 */
+        display: inline-block;
+        /* 重写font-size */
+        font-size: 15px;
+        list-style: none;
+        height: 20px;
+        width: 900px;
+    }
+     
+    li {
+        line-height: 20px;
+        width: 150px;
+        float: left;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+        var div2 = document.getElementById("div2")
+        var ul1 = document.getElementById("ul1")
+        var ul2 = document.getElementById("ul2")
+        ul2.innerHTML = ul1.innerHTML;
+ 
+        var speed = 30;
+        function scroll(){
+            div2.scrollLeft++;
+            if (div2.scrollLeft === ul1.scrollWidth) {
+                div2.scrollLeft = 0;
+            }
+        }
+        var timer=setInterval(scroll, speed);
+        div2.onmouseover = function(){
+               clearInterval(timer);
+        }
+        div2.onmouseout = function(){
+                timer=setInterval(scroll, speed);
+        }
+        }
+    </script>
+</head>
+ 
+<body>
+    <div id="div1">
+        <div id="div2">
+            <ul id="ul1">
+                <li>HTML+CSS基础课程</li>
+                <li>分页页码制作</li>
+                <li>导航条菜单的制作</li>
+                <li>信息列表制作</li>
+                <li>下拉菜单制作</li>
+                <li>tab页面切换效果</li>
+            </ul>
+            <ul id="ul2"></ul>
+        </div>
+    </div>
+</body>
+ 
+</html>
